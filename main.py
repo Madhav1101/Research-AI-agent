@@ -4,6 +4,7 @@ from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
+from tools import wiki_tool
 
 load_dotenv()
 
@@ -27,10 +28,15 @@ prompt = ChatPromptTemplate.from_messages(
             """,
         ),
         ("human", "{query}"),
+        ("human", "Wikipedia Content:\n{wiki_content}"),
     ]
 ).partial(format_instructions=parser.get_format_instructions())
 
 chain = prompt | llm | parser
 
-response = chain.invoke({"query": "What is Digital Rights Management in detail?"})
+query = input("What can i help you with research? ")
+
+wiki_content = wiki_tool.run(query)
+
+response = chain.invoke({"query": query, "wiki_content": wiki_content})
 print(response)
