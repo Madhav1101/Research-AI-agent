@@ -65,3 +65,11 @@ python .\main.py
 
 ### Generate one text file with name of `reasearch_output.txt`.
 
+### Small Research Output
+![research](https://github.com/user-attachments/assets/af18b16c-5469-412d-b8ba-555ec41f3bcf)
+
+### Feel Free to Fork and clone this Repository.
+
+### ⭐️ Don't forget to Follow. Thank You!
+
+
